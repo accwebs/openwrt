@@ -45,7 +45,7 @@
 
 		key_ac_toggle {
 			label = "key_ac_toggle";
-			linux,code = <BTN0>;
+			linux,code = <BTN_0>;
 			gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
 		};
 
