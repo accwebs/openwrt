@@ -4,6 +4,17 @@ include ./common-senao.mk
 
 DEVICE_VARS += DAP_SIGNATURE
 
+define Build/mkcameofw
+	$(STAGING_DIR_HOST)/bin/mkcameofw -c \
+		-k $@ -o $@.new \
+		-M $(CAMEO_MODEL) \
+		-S $(CAMEO_SIGNATURE) \
+		-V $(VERSION_DIST) \
+		-R DEF \
+		-K $(1)
+	mv $@.new $@
+endef
+
 define Build/mkdapimg2
 	$(STAGING_DIR_HOST)/bin/mkdapimg2 \
 		-i $@ -o $@.new \
@@ -100,6 +111,11 @@ define Device/dlink_dsp-w215-a1
   IMAGE_SIZE := 4608k
   DEVICE_PACKAGES := -kmod-mdio -kmod-mii -luci-proto-ppp -ppp \
 	-ppp-mod-pppoe -swconfig
+  IMAGES += factory.bin
+  IMAGE/factory.bin := append-kernel | pad-to $$$$(BLOCKSIZE) | \
+	append-rootfs | pad-rootfs | check-size | mkcameofw 0x100000
+  CAMEO_MODEL := HORNET
+  CAMEO_SIGNATURE := HORNET-PACKET-DSPW215A1-3
 endef
 TARGET_DEVICES += dlink_dsp-w215-a1
 
