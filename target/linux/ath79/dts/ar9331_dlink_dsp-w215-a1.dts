@@ -149,7 +149,7 @@
 			
 			fwconcat1: partition@780000 {
 				label = "fwconcat1";
-				reg = <0x780000 0x80000>;
+				reg = <0x780000 0x880000>;
 			};
 		};
 	};
