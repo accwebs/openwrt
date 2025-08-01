@@ -59,7 +59,7 @@ define Device/dlink_dsp-w215-a1
   DEVICE_VENDOR := D-Link
   DEVICE_MODEL := DSP-W215
   DEVICE_VARIANT := A1
-  IMAGE_SIZE := 4608k
+  IMAGE_SIZE := 4544k
   DEVICE_PACKAGES := -kmod-mdio -kmod-mii -luci-proto-ppp -ppp \
 	-ppp-mod-pppoe -swconfig
   IMAGES += factory.bin
