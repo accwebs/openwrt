@@ -55,8 +55,8 @@
 	gpio-export {
 		compatible = "gpio-export";
 
-		ac_output_enable {
-			gpio-export,name = "gpio:ac_output_enable";
+		pl8331_chip_enable {
+			gpio-export,name = "gpio:pl8331_chip_enable";
 			gpio-export,output = <0>;
 			gpios = <&gpio 19 GPIO_ACTIVE_HIGH>;
 		};
