@@ -48,7 +48,10 @@
 
 		switch {
 			label = "green:switch";
-			gpios = <&gpio 13 GPIO_ACTIVE_LOW>;
+			// This was previously GPIO pin 13.
+			// I've confirmed W215 A2 uses pin 20.
+			// A1 users *may* have to fix this back...I have no A1 to test with
+			gpios = <&gpio 20 GPIO_ACTIVE_LOW>;
 		};
 	};
 
