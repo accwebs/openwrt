@@ -6,7 +6,7 @@
 #include "ar9331.dtsi"
 
 / {
-	model = "D-Link DSP-W215 A1";
+	model = "D-Link DSP-W215 A1/A2";
 	compatible = "dlink,dsp-w215-a1", "qca,ar9331";
 
 	aliases {
