@@ -16,6 +16,15 @@
 		led-upgrade = &led_power_red;
 	};
 
+	// Default bootargs for ar9330/9331 include "console=ttyATH0".
+	// This prevents clean communication with the PL8331 chip which uses the same serial port.
+	// Here, we override the boot args to prevent the kernel from using the serial port.
+	// If you need to access your (modified) device over serial temporarily (e.g. for debugging purposes),
+	//   build an image with this removed.
+	chosen {
+		bootargs = "console=null";
+	};
+
 	keys {
 		compatible = "gpio-keys";
 
